@@ -1,9 +1,9 @@
-﻿WorldRepairUnity/Library
-WorldRepairUnity/Temp
-WorldRepairUnity/Logs
-WorldRepairUnity/obj
-WorldRepairUnity/Assembly-CSharp.csproj
-WorldRepairUnity/WorldRepairUnity.sln
-WorldRepairUnity/.vs
+﻿src/SnootUnity/Library
+src/SnootUnity/Temp
+src/SnootUnity/Logs
+src/SnootUnity/obj
+src/SnootUnity/*.csproj
+src/SnootUnity/*.sln
+src/SnootUnity/.vs
 
 [Bb]uilds
