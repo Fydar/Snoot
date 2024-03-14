@@ -1,6 +1,7 @@
 ﻿src/SnootUnity/Library
 src/SnootUnity/Temp
 src/SnootUnity/Logs
+src/SnootUnity/UserSettings
 src/SnootUnity/obj
 src/SnootUnity/*.csproj
 src/SnootUnity/*.sln
