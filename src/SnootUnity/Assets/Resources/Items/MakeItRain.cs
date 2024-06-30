@@ -12,7 +12,7 @@ public class MakeItRain : BehaviourObj
         RainEffect.gameObject.SetActive(false);
 
         player.IsInteracting = true;
-        FindObjectOfType<PAnimController>()?.SetRaindance(true);
+        FindAnyObjectByType<PAnimController>()?.SetRaindance(true);
 
         while (true)
         {
