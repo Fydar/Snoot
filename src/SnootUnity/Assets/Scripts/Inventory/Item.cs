@@ -3,5 +3,5 @@
 [Serializable]
 public class Item
 {
-	public ItemTemplate Template;
+    public ItemTemplate Template;
 }

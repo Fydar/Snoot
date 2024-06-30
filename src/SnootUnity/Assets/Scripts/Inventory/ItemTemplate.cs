@@ -4,111 +4,111 @@ using UnityEngine;
 [Serializable]
 public struct ItemAction
 {
-	public ItemTemplate ActionTarget;
-	public BehaviourObj BehaviourObject;
-	public string ActionText;
+    public ItemTemplate ActionTarget;
+    public BehaviourObj BehaviourObject;
+    public string ActionText;
 
-	public bool RequiresWater;
-	public bool InWorld;
-	public bool InInventory;
+    public bool RequiresWater;
+    public bool InWorld;
+    public bool InInventory;
 
-	public bool CanUse()
-	{
-		if (RequiresWater)
-		{
-			if (!WorldManager.Instance.HasRained)
-			{
-				return false;
-			}
-		}
+    public bool CanUse()
+    {
+        if (RequiresWater)
+        {
+            if (!WorldManager.Instance.HasRained)
+            {
+                return false;
+            }
+        }
 
-		return true;
-	}
+        return true;
+    }
 }
 
 [CreateAssetMenu]
 public class ItemTemplate : ScriptableObject
 {
-	public string Name;
-	public string Description;
+    public string Name;
+    public string Description;
 
-	[Space]
-	public Sprite Icon;
+    [Space]
+    public Sprite Icon;
 
-	[Space]
-	public GameObject DroppedPrefab;
-	
-	[Space]
-	public ItemAction[] Combinations;
+    [Space]
+    public GameObject DroppedPrefab;
 
-	[Space]
-	public bool DestroyOnUse;
+    [Space]
+    public ItemAction[] Combinations;
 
-	public ItemAction WorldInteraction;
+    [Space]
+    public bool DestroyOnUse;
 
-	public Item Generate()
-	{
-		return new Item()
-		{
-			Template = this
-		};
-	}
+    public ItemAction WorldInteraction;
 
-	public ItemAction CanCombineInInventory(ItemTemplate other)
-	{
-		foreach (var combination in Combinations)
-		{
-			if (!combination.InInventory)
-			{
-				continue;
-			}
-			if (combination.ActionTarget == other)
-			{
-				return combination;
-			}
-		}
+    public Item Generate()
+    {
+        return new Item()
+        {
+            Template = this
+        };
+    }
 
-		foreach (var combination in other.Combinations)
-		{
-			if (!combination.InInventory)
-			{
-				continue;
-			}
-			if (combination.ActionTarget == this)
-			{
-				return combination;
-			}
-		}
+    public ItemAction CanCombineInInventory(ItemTemplate other)
+    {
+        foreach (var combination in Combinations)
+        {
+            if (!combination.InInventory)
+            {
+                continue;
+            }
+            if (combination.ActionTarget == other)
+            {
+                return combination;
+            }
+        }
 
-		return default;
-	}
+        foreach (var combination in other.Combinations)
+        {
+            if (!combination.InInventory)
+            {
+                continue;
+            }
+            if (combination.ActionTarget == this)
+            {
+                return combination;
+            }
+        }
 
-	public ItemAction CanCombineInWorld(ItemTemplate other)
-	{
-		foreach (var combination in Combinations)
-		{
-			if (!combination.InWorld)
-			{
-				continue;
-			}
-			if (combination.ActionTarget == other)
-			{
-				return combination;
-			}
-		}
+        return default;
+    }
 
-		foreach (var combination in other.Combinations)
-		{
-			if (!combination.InWorld)
-			{
-				continue;
-			}
-			if (combination.ActionTarget == this)
-			{
-				return combination;
-			}
-		}
+    public ItemAction CanCombineInWorld(ItemTemplate other)
+    {
+        foreach (var combination in Combinations)
+        {
+            if (!combination.InWorld)
+            {
+                continue;
+            }
+            if (combination.ActionTarget == other)
+            {
+                return combination;
+            }
+        }
 
-		return default;
-	}
+        foreach (var combination in other.Combinations)
+        {
+            if (!combination.InWorld)
+            {
+                continue;
+            }
+            if (combination.ActionTarget == this)
+            {
+                return combination;
+            }
+        }
+
+        return default;
+    }
 }

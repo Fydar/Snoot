@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Plant : BehaviourObj
 {
-    public static List<Plant> AllPlants = new List<Plant>();
+    public static List<Plant> AllPlants = new();
     public static float GlobalLockout;
 
     public Animator anim;

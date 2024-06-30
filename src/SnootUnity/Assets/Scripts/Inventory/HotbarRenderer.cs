@@ -6,34 +6,34 @@ public class ItemSlotRendererPool : UIPool<ItemSlotRenderer> { }
 
 public class HotbarRenderer : MonoBehaviour
 {
-	public CharacterInventory RenderOnStart;
+    public CharacterInventory RenderOnStart;
 
-	[Space]
-	public RectTransform SlotHolder;
-	public ItemSlotRendererPool RendererPool;
+    [Space]
+    public RectTransform SlotHolder;
+    public ItemSlotRendererPool RendererPool;
 
-	private CharacterInventory CurrentTarget;
+    private CharacterInventory CurrentTarget;
 
-	public void Start()
-	{
-		if (RenderOnStart != null)
-		{
-			Render(RenderOnStart);
-		}
-	}
+    public void Start()
+    {
+        if (RenderOnStart != null)
+        {
+            Render(RenderOnStart);
+        }
+    }
 
-	public void Render(CharacterInventory player)
-	{
-		CurrentTarget = player;
+    public void Render(CharacterInventory player)
+    {
+        CurrentTarget = player;
 
-		RendererPool.Flush();
+        RendererPool.Flush();
 
-		for (int i = 0; i < player.Hotbar.Slots.Length; i++)
-		{
-			var slot = player.Hotbar.Slots[i];
-			var slotRenderer = RendererPool.Grab(SlotHolder);
+        for (int i = 0; i < player.Hotbar.Slots.Length; i++)
+        {
+            var slot = player.Hotbar.Slots[i];
+            var slotRenderer = RendererPool.Grab(SlotHolder);
 
-			slotRenderer.Render(slot, CurrentTarget, i);
-		}
-	}
+            slotRenderer.Render(slot, CurrentTarget, i);
+        }
+    }
 }

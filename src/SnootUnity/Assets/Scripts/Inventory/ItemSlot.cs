@@ -3,22 +3,19 @@
 [Serializable]
 public class ItemSlot
 {
-	public Action OnChanged;
+    public Action OnChanged;
 
-	private Item contents;
+    private Item contents;
 
-	public Item Contents
-	{
-		get
-		{
-			return contents;
-		}
-		set
-		{
-			contents = value;
-			OnChanged?.Invoke();
-		}
-	}
+    public Item Contents
+    {
+        get => contents;
+        set
+        {
+            contents = value;
+            OnChanged?.Invoke();
+        }
+    }
 
 
 }

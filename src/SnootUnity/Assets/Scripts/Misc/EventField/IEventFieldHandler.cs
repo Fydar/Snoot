@@ -1,5 +1,5 @@
 public interface IEventFieldHandler
 {
-	void OnBeforeChanged();
-	void OnAfterChanged();
+    void OnBeforeChanged();
+    void OnAfterChanged();
 }

@@ -3,10 +3,10 @@
 [CreateAssetMenu]
 public class GroundStyle : ScriptableObject
 {
-	public Sprite[] Sprites;
+    public Sprite[] Sprites;
 
-	public Sprite RandomSprite()
-	{
-		return Sprites[Random.Range(0, Sprites.Length)];
-	}
+    public Sprite RandomSprite()
+    {
+        return Sprites[Random.Range(0, Sprites.Length)];
+    }
 }

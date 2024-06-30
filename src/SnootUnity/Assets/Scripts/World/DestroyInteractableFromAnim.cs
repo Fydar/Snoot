@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DestroyInteractableFromAnim : MonoBehaviour
 {
@@ -12,7 +10,7 @@ public class DestroyInteractableFromAnim : MonoBehaviour
     public void FinishRaindance()
     {
         GetComponentInParent<PlayerController>()?.InteractionFinished();
-        MakeItRain mir = FindObjectOfType<MakeItRain>();
+        var mir = FindAnyObjectByType<MakeItRain>();
         if (mir != null)
         {
             mir.BringTheRain = true;

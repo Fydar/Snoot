@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimalWander : MonoBehaviour
@@ -19,14 +18,12 @@ public class AnimalWander : MonoBehaviour
     [SerializeField]
     private float maxWaitTime = 1.0f;
 
-    private bool facingRight = true;
-
     private float timeToNextMove = 0.0f;
     private float timeMoving = 0.0f;
+    private Vector3 home;
 
-    Vector3 home;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         home = transform.position;
         timeToNextMove = Random.Range(minWaitTime, maxWaitTime) + 1.0f;
@@ -66,7 +63,7 @@ public class AnimalWander : MonoBehaviour
 
     private IEnumerator<YieldInstruction> DoMove()
     {
-        Vector3 wayHome = (home - transform.position);
+        var wayHome = home - transform.position;
         Vector3 direction;
         if (wayHome == Vector3.zero)
         {
@@ -96,8 +93,8 @@ public class AnimalWander : MonoBehaviour
         while (true)
         {
             timeMoving -= Time.deltaTime;
-            Vector3 translation = direction * Time.deltaTime;
-            Vector3 newLoc = transform.position + translation;
+            var translation = direction * Time.deltaTime;
+            var newLoc = transform.position + translation;
             transform.position = newLoc;
             if (timeMoving > 0)
             {

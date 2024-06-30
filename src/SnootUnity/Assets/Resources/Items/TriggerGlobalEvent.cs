@@ -1,9 +1,9 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class TriggerGlobalEvent : BehaviourObj
 {
-    public static HashSet<string> Used = new HashSet<string>();
+    public static HashSet<string> Used = new();
 
     public string OneTimeUseIdentifier;
     public GameObject Scatter;

@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class MakeItRain : BehaviourObj
 {
@@ -43,7 +43,7 @@ public class MakeItRain : BehaviourObj
 
         WorldManager.Instance.StartCoroutine(WorldManager.Instance.ManagedFade(() =>
         {
-            float percent = ((float)Plant.AllPlants.Count) / 40.0f;
+            float percent = Plant.AllPlants.Count / 40.0f;
 
 
             return percent;

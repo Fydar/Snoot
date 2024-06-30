@@ -1,20 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class PAnimController : MonoBehaviour
 {
-    Animator anim;
-    string[] layers = { "Right", "Left", "Up", "Down" };
+    private Animator anim;
+    private readonly string[] layers = { "Right", "Left", "Up", "Down" };
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
 
     }
@@ -36,7 +35,7 @@ public class PAnimController : MonoBehaviour
     public IEnumerator<YieldInstruction> DevoidAnimation(PlayerController player)
     {
         anim.SetBool("Void", false);
-        
+
         int layerIndex = anim.GetLayerIndex("VoidForm");
         while (true)
         {

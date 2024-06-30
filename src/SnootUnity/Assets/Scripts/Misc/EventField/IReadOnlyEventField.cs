@@ -1,5 +1,5 @@
 ﻿
 public interface IReadOnlyEventField<T> : IEventField
 {
-	T Value { get; }
+    T Value { get; }
 }

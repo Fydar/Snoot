@@ -25,10 +25,7 @@ public class PlayerController : MonoBehaviour
 
     public Item HeldItem
     {
-        get
-        {
-            return internalHeldItem;
-        }
+        get => internalHeldItem;
         set
         {
             internalHeldItem = value;
@@ -218,8 +215,6 @@ public class PlayerController : MonoBehaviour
     private IEnumerator<YieldInstruction> InteractRoutine(Interactable interactable)
     {
         IsInteracting = true;
-
-        Debug.Log("Interacting with " + interactable);
 
         if (interactable.Behaviour == Interactable.InteractableBehaviour.Pickup)
         {
